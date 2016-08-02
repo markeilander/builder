@@ -3,9 +3,13 @@
 namespace {{namespace}};
 
 use Illuminate\Database\Eloquent\Model;
+//use Spatie\Sluggable\HasSlug;
+//use Spatie\Sluggable\SlugOptions;
 
 class {{class}} extends Model
 {
+    //use HasSlug;
+    
     /**
      * The table associated with the model.
      *
@@ -24,5 +28,15 @@ class {{class}} extends Model
      * @var array
      */
     //protected $guarded = [];
+    
+    /**
+     * Get the options for generating the slug.
+     */
+    /*public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug');
+    }*/
 
 }
