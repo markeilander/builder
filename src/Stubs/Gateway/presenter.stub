@@ -1,0 +1,19 @@
+<?php
+
+namespace {{namespace}};
+
+use Eilander\Gateway\Presenter\FractalPresenter;
+use {{transformer_namespace}}\{{model}}Transformer as Transformer;
+
+class {{class}} extends FractalPresenter {
+
+    /**
+     * Prepare data to present
+     *
+     * @return \League\Fractal\TransformerAbstract
+     */
+    public function getTransformer()
+    {
+        return new Transformer();
+    }
+}

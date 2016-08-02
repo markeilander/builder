@@ -1,0 +1,51 @@
+<?php
+
+namespace  {{namespace}};
+
+use Eilander\Gateway\Contracts\Eloquent;
+
+/**
+ * Interface {{class}}
+ */
+interface {{class}} extends Eloquent
+{
+    /**
+     * Add
+     *
+     * @param $data
+     * @return mixed
+     */
+    public function create(array $data);
+
+    /**
+     * Update
+     *
+     * @param $data
+     * @return mixed
+     */
+    public function update(array $data, $id);
+
+    /**
+     * Show
+     *
+     * @param $data
+     * @return mixed
+     */
+    public function show($id);
+
+    /**
+     * Delete
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function delete($id);
+
+    /**
+     * Search
+     *
+     * @param $data
+     * @return string
+     */
+    public function search(array $data);
+}

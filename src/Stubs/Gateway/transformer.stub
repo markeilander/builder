@@ -1,0 +1,17 @@
+<?php
+
+namespace {{namespace}};
+
+use Eilander\Gateway\Transformer\Transformer;
+use {{entity_namespace}}\{{model}};
+
+class {{class}} extends Transformer {
+
+    public function transform({{model}} $model)
+    {
+        return [
+            'id'    => $model->id,
+        ];
+    }
+
+}

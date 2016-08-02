@@ -1,0 +1,23 @@
+<?php
+
+namespace {{namespace}};
+
+use Eilander\Validator\LaravelValidator as Validator;
+
+class {{class}} extends Validator
+{
+    const RULE_CREATE_UPDATE = 1;
+    const RULE_SEARCH = 3;
+
+    public static $rules = [
+        self::RULE_CREATE_UPDATE => [
+            'naam'            => 'sometimes|required|extended_alpha_num',
+            'gebruiker_id'    => 'sometimes|required|integer',
+            'methode_id'      => 'sometimes|required|integer',
+            'rapportage'      => 'boolean',
+        ],
+        self::RULE_SEARCH => [
+            'search'   => ['required', 'regex:/^(naam):/']
+        ],
+    ];
+}

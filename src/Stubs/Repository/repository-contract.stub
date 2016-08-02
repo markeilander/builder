@@ -1,0 +1,13 @@
+<?php
+
+namespace {{namespace}};
+
+use Eilander\Repository\Contracts\Eloquent;
+
+/**
+ * Interface {{class}}
+ */
+interface {{class}} extends Eloquent
+{
+    //
+}

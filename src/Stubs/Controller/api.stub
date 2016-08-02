@@ -1,0 +1,30 @@
+<?php
+
+namespace {{namespace}};
+
+use Illuminate\Http\Request;
+use Modules\Core\Http\Controllers\CoreController;
+use {{ginterface_namespace}}\{{model}}Gateway as Gateway;
+
+/**
+ * @Resource("Group {{model}}s")
+ */
+class {{class}} extends CoreController
+{
+    /**
+     * @var Gateway
+     */
+    protected $gateway;
+
+    public function __construct(Gateway $gateway)
+    {
+        parent::__construct();
+        $this->gateway = $gateway->skipPresenter();
+        $this->middleware('api.auth');
+        $this->middleware('can:list{{model}}', ['only' => ['index']]);
+        $this->middleware('can:addP{{model}}', ['only' => ['store']]);
+        $this->middleware('can:show{{model}}', ['only' => ['show']]);
+        $this->middleware('can:update{{model}}', ['only' => ['update']]);
+        $this->middleware('can:delete{{model}}', ['only' => ['destroy']]);
+    }
+}

@@ -1,0 +1,37 @@
+<?php
+
+namespace {{namespace}};
+
+use Modules\Core\Repositories\Eloquent\CoreRepository as BaseRepository;
+use Eilander\Repository\Traits\CacheableRepository;
+use {{interface_namespace}}\{{class}} as Repository;
+use {{entity_namespace}}\{{model}} as Model;
+
+/**
+ * Class {{class}}
+ */
+class {{class}} extends BaseRepository implements Repository
+{
+    use CacheableRepository;
+
+    protected $fieldSearchable = [
+        'naam'
+    ];
+    /**
+     * List of repositories that uses this repository's model
+     * Most likely via the url param ?include={{model}}
+     *
+     * @var array
+     */
+    protected $isUsedBy = [
+    ];
+    /**
+     * Specify Model class name
+     *
+     * @return string
+     */
+    public function model()
+    {
+        return Model::class;
+    }
+}

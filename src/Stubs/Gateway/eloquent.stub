@@ -1,0 +1,82 @@
+<?php
+namespace  {{namespace}};
+
+use {{ginterface_namespace}}\{{model}}Gateway as Gateways;
+use {{validation_namespace}}\{{model}}Validator as Validator;
+use {{interface_namespace}}\{{model}}Repository as Repository;
+use {{presenter_namespace}}\{{model}}Presenter as Presenter;
+use Eilander\Gateway\Eloquent\EloquentGateway;
+
+class {{class}} extends EloquentGateway implements Gateways
+{
+
+    /**
+     * Specify Repository class name
+     *
+     * @return string
+     */
+    public function repository()
+    {
+        return Repository::class;
+    }
+
+    /**
+     * Specify Presenter class name
+     *
+     * @return string
+     */
+    public function presenter()
+    {
+        return Presenter::class;
+    }
+
+    /**
+     * Specify Validator class name
+     *
+     * @return string
+     */
+    public function validator()
+    {
+        return Validator::class;
+    }
+
+    /**
+     * Add
+     *
+     * @param $data
+     * @return mixed
+     */
+    public function create(array $data, $validation = '') {
+        return parent::create($data, Validator::RULE_CREATE_UPDATE);
+    }
+
+    /**
+     * Update
+     *
+     * @param $data
+     * @return mixed
+     */
+    public function update(array $data, $id, $validation = '') {
+        return parent::update($data, $id, Validator::RULE_CREATE_UPDATE);
+    }
+
+    /**
+     * Search
+     *
+     * @param $data
+     * @return string
+     */
+    public function search(array $data)
+    {
+         // some validation
+        if ( $this->validator instanceof Validator ) {
+            // some validation
+            if ($this->validator->fails($data, Validator::RULE_SEARCH)) {
+                return $this->validator;
+            }
+            // perform any sort of validation first
+            return $this->parserResult($this->repository->all());
+        }
+        return null;
+    }
+}

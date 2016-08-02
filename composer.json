@@ -1,0 +1,20 @@
+{
+    "name": "eilander/builder",
+    "type": "package",
+    "description": "Eilander builder",
+    "authors": [
+        {
+            "name": "Mark Eilander",
+            "email": "mark.eilander@outlook.com"
+        }
+    ],
+    "repositories": [
+      {
+        "type": "vcs",
+        "url": "git@bitbucket.org:eilander/generators.git"
+      }
+    ],
+    "require": {
+        "php": ">=5.5.9"
+    }
+}
