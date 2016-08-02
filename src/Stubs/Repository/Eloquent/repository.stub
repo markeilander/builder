@@ -2,7 +2,7 @@
 
 namespace {{namespace}};
 
-use Modules\Core\Repositories\Eloquent\CoreRepository as BaseRepository;
+use App\Repositories\Eloquent\CoreRepository as BaseRepository;
 use Eilander\Repository\Traits\CacheableRepository;
 use {{interface_namespace}}\{{class}} as Repository;
 use {{entity_namespace}}\{{model}} as Model;
