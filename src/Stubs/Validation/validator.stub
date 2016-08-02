@@ -6,18 +6,16 @@ use Eilander\Validator\LaravelValidator as Validator;
 
 class {{class}} extends Validator
 {
-    const RULE_CREATE_UPDATE = 1;
-    const RULE_SEARCH = 3;
+    const RULE_CREATE = 1;
+    const RULE_UPDATE = 2;
 
     public static $rules = [
-        self::RULE_CREATE_UPDATE => [
-            'naam'            => 'sometimes|required|extended_alpha_num',
-            'gebruiker_id'    => 'sometimes|required|integer',
-            'methode_id'      => 'sometimes|required|integer',
-            'rapportage'      => 'boolean',
+        self::RULE_CREATE => [
+            'name'    => 'required|extended_alpha_num',
+            'user_id' => 'required|integer'
         ],
-        self::RULE_SEARCH => [
-            'search'   => ['required', 'regex:/^(naam):/']
+        self::RULE_UPDATE => [
+            'name'            => 'sometimes|required|extended_alpha_num',
         ],
     ];
 }
