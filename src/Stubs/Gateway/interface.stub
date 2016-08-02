@@ -40,12 +40,4 @@ interface {{class}} extends Eloquent
      * @return mixed
      */
     public function delete($id);
-
-    /**
-     * Search
-     *
-     * @param $data
-     * @return string
-     */
-    public function search(array $data);
 }
