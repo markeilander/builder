@@ -5,12 +5,21 @@ namespace {{namespace}};
 use Eilander\Gateway\Transformer\Transformer;
 use {{entity_namespace}}\{{model}};
 
-class {{class}} extends Transformer {
-
+class {{class}} extends Transformer 
+{
+    /**
+     * List of resources possible to include
+     *
+     * @var array
+     */
+    protected $availableIncludes = [
+        
+    ];
+    
     public function transform({{model}} $model)
     {
         return [
-            'id'    => $model->id,
+            'id' => $model->id,
         ];
     }
 
