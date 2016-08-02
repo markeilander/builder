@@ -1,20 +1,21 @@
 {
     "name": "eilander/builder",
-    "type": "package",
-    "description": "Eilander builder",
-    "authors": [
+    "description": "Laravel 5 cache package.",
+      "keywords": ["laravel", "cache", "laravel5"],
+      "license": "MIT",
+      "authors": [
         {
-            "name": "Mark Eilander",
-            "email": "mark.eilander@outlook.com"
+          "name": "Mark Eilander",
+          "email": "mark.eilander@outlook.com"
         }
-    ],
-    "repositories": [
-      {
-        "type": "vcs",
-        "url": "git@bitbucket.org:eilander/generators.git"
+      ],
+      "require": {
+          "php": ">=5.5.9",
+          "laravel/framework": "5.1.*|5.2.*"
+      },
+      "autoload": {
+        "psr-4": {
+          "Eilander\\Builder\\": "src/"
+        }
       }
-    ],
-    "require": {
-        "php": ">=5.5.9"
-    }
 }
