@@ -47,7 +47,7 @@ class {{class}} extends EloquentGateway implements Gateways
      * @return mixed
      */
     public function create(array $data, $validation = '') {
-        return parent::create($data, Validator::RULE_CREATE_UPDATE);
+        return parent::create($data, Validator::RULE_CREATE);
     }
 
     /**
@@ -57,26 +57,6 @@ class {{class}} extends EloquentGateway implements Gateways
      * @return mixed
      */
     public function update(array $data, $id, $validation = '') {
-        return parent::update($data, $id, Validator::RULE_CREATE_UPDATE);
-    }
-
-    /**
-     * Search
-     *
-     * @param $data
-     * @return string
-     */
-    public function search(array $data)
-    {
-         // some validation
-        if ( $this->validator instanceof Validator ) {
-            // some validation
-            if ($this->validator->fails($data, Validator::RULE_SEARCH)) {
-                return $this->validator;
-            }
-            // perform any sort of validation first
-            return $this->parserResult($this->repository->all());
-        }
-        return null;
+        return parent::update($data, $id, Validator::RULE_UPDATE);
     }
 }
