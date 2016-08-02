@@ -3,7 +3,7 @@
 namespace {{namespace}};
 
 use Illuminate\Http\Request;
-use Modules\Core\Http\Controllers\CoreController;
+use App\Http\Controllers\Api\V1\CoreController;
 use {{ginterface_namespace}}\{{model}}Gateway as Gateway;
 
 /**
