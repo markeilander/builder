@@ -17,11 +17,12 @@ class MakeRepositoryBinding extends RepositoryBase
         $this->getReplacements();
         // Genereer bestand
         $this->run();
+
         return 'Binding added successfully';
     }
 
     /**
-     * Set replacements
+     * Set replacements.
      *
      * @return string
      */
@@ -34,7 +35,7 @@ class MakeRepositoryBinding extends RepositoryBase
 
     protected function binding()
     {
-    	return '$this->app->bind("'.$this->pathToNamespace('eloquent.interface').'\\'.$this->name.'Repository", "'.$this->pathToNamespace('eloquent.repository').'\\'.$this->name.'Repository");
+        return '$this->app->bind("'.$this->pathToNamespace('eloquent.interface').'\\'.$this->name.'Repository", "'.$this->pathToNamespace('eloquent.repository').'\\'.$this->name.'Repository");
         //{{builder_repository_binding}}';
     }
 
@@ -47,6 +48,7 @@ class MakeRepositoryBinding extends RepositoryBase
     {
         $path = config($this->configName().'.generator.binding.provider',
                     app_path().'/Providers/RepositoryServiceProvider.php');
+
         return str_replace('[module]', $this->option('module'), $path);
     }
 }

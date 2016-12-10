@@ -20,11 +20,12 @@ class MakeRepository extends RepositoryBase
         $this->getReplacements();
         // Genereer bestand
         $this->run();
+
         return 'Repository created successfully.';
     }
 
     /**
-     * Set replacements
+     * Set replacements.
      *
      * @return string
      */
@@ -34,9 +35,10 @@ class MakeRepository extends RepositoryBase
             'model'               => $this->nameParser->getNames('Name'),
             'namespace'           => $this->pathToNamespace('eloquent.repository'),
             'interface_namespace' => $this->pathToNamespace('eloquent.interface'),
-            'entity_namespace' => $this->pathToNamespace('eloquent.entity'),
+            'entity_namespace'    => $this->pathToNamespace('eloquent.entity'),
             'presenter_namespace' => $this->pathToNamespace('eloquent.presenter'),
         ]);
+
         return $this->replacements;
     }
 }

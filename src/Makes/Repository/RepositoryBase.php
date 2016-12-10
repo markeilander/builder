@@ -14,6 +14,7 @@ class RepositoryBase extends BaseMake
     {
         return 'builder';
     }
+
     /**
      * Get the path to where we should store the files.
      *
@@ -25,6 +26,7 @@ class RepositoryBase extends BaseMake
     protected function destinationPath($file_name, $config)
     {
         $path = $this->getBasePath().'/'.$this->getRootPath().'/'.$this->configPath($config).$file_name.'.php';
+
         return str_replace('[module]', $this->option('module'), $path);
     }
 
@@ -51,20 +53,22 @@ class RepositoryBase extends BaseMake
     {
         $path = $this->getRootNamespace().'/'.$this->configPath($config);
         $namespace = rtrim(str_replace(DIRECTORY_SEPARATOR, '\\', $path), '/\\');
+
         return str_replace('[module]', $this->option('module'), $namespace);
     }
 
     protected function buildSyntax($type)
     {
         $syntaxBuilder = new SyntaxBuilder();
+
         return $syntaxBuilder->create($this->getSchema(), $this->option('meta'), $type);
     }
 
     /**
-     * Get correct package path for stubs eo
+     * Get correct package path for stubs eo.
      */
     protected function getPackagePath()
     {
-        return realpath(__DIR__ . '/../../');
+        return realpath(__DIR__.'/../../');
     }
 }

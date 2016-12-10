@@ -14,17 +14,18 @@ class MakeController extends RepositoryBase
 
         // Bestaat het bestand al?
         if ($this->exists()) {
-          return 'Controller '.$this->name.' already exists!';
+            return 'Controller '.$this->name.' already exists!';
         }
         // Maak replacements
         $this->getReplacements();
         // Genereer bestand
         $this->run();
+
         return 'Controller created successfully';
     }
 
     /**
-     * Set replacements
+     * Set replacements.
      *
      * @return string
      */
@@ -36,6 +37,7 @@ class MakeController extends RepositoryBase
             'namespace'            => $this->pathToNamespace('controller.'.$this->option('type')),
             'ginterface_namespace' => $this->pathToNamespace('eloquent.ginterface'),
         ]);
+
         return $this->replacements;
     }
 }

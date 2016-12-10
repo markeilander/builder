@@ -17,11 +17,12 @@ class MakeGatewayBinding extends RepositoryBase
         $this->getReplacements();
         // Genereer bestand
         $this->run();
+
         return 'Binding added successfully';
     }
 
     /**
-     * Set replacements
+     * Set replacements.
      *
      * @return string
      */
@@ -34,7 +35,7 @@ class MakeGatewayBinding extends RepositoryBase
 
     protected function binding()
     {
-    	return '$this->app->bind("'.$this->pathToNamespace('eloquent.ginterface').'\\'.$this->name.'Gateway", "'.$this->pathToNamespace('eloquent.gateway').'\\'.$this->name.'Gateway");
+        return '$this->app->bind("'.$this->pathToNamespace('eloquent.ginterface').'\\'.$this->name.'Gateway", "'.$this->pathToNamespace('eloquent.gateway').'\\'.$this->name.'Gateway");
         //{{builder_gateway_binding}}';
     }
 
@@ -47,6 +48,7 @@ class MakeGatewayBinding extends RepositoryBase
     {
         $path = config($this->configName().'.generator.binding.gateway',
                     app_path().'/Providers/GatewayServiceProvider.php');
+
         return str_replace('[module]', $this->option('module'), $path);
     }
 }

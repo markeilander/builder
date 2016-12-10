@@ -21,11 +21,12 @@ class MakeRepository extends RepositoryBase
         $this->getReplacements();
         // Genereer bestand
         $this->run();
+
         return 'RepositoryServiceProvider created successfully.';
     }
 
     /**
-     * Set replacements
+     * Set replacements.
      *
      * @return string
      */
@@ -34,6 +35,7 @@ class MakeRepository extends RepositoryBase
         $this->replacements = array_merge(parent::getReplacements(), [
             'namespace'            => $this->pathToNamespace('eloquent.providers'),
         ]);
+
         return $this->replacements;
     }
 }

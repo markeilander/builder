@@ -20,11 +20,12 @@ class MakeTransformer extends RepositoryBase
         $this->getReplacements();
         // Genereer bestand
         $this->run();
+
         return 'Transformer created successfully.';
     }
 
     /**
-     * Set replacements
+     * Set replacements.
      *
      * @return string
      */
@@ -35,6 +36,7 @@ class MakeTransformer extends RepositoryBase
             'namespace'        => $this->pathToNamespace('eloquent.transformer'),
             'entity_namespace' => $this->pathToNamespace('eloquent.entity'),
         ]);
+
         return $this->replacements;
     }
 }

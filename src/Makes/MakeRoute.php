@@ -17,11 +17,12 @@ class MakeRoute extends RepositoryBase
         $this->getReplacements();
         // Genereer bestand
         $this->run();
+
         return 'Route added successfully';
     }
 
     /**
-     * Set replacements
+     * Set replacements.
      *
      * @return string
      */
@@ -34,8 +35,8 @@ class MakeRoute extends RepositoryBase
 
     protected function route()
     {
-    	return "Route::resource('".strtolower($this->name)."', '".ucfirst($this->name)."Controller');
-//{{builder_".$this->option('type')."_routes}}";
+        return "Route::resource('".strtolower($this->name)."', '".ucfirst($this->name)."Controller');
+//{{builder_".$this->option('type').'_routes}}';
     }
 
     /**
@@ -46,6 +47,7 @@ class MakeRoute extends RepositoryBase
     protected function getRouteFile()
     {
         $path = config($this->configName().'.generator.route', app_path().'/Http/routes.php');
+
         return str_replace('[module]', $this->option('module'), $path);
     }
 }
