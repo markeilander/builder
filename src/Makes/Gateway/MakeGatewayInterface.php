@@ -21,11 +21,12 @@ class MakeGatewayInterface extends RepositoryBase
         $this->getReplacements();
         // Genereer bestand
         $this->run();
+
         return 'Contract created successfully.';
     }
 
     /**
-     * Set replacements
+     * Set replacements.
      *
      * @return string
      */
@@ -34,6 +35,7 @@ class MakeGatewayInterface extends RepositoryBase
         $this->replacements = array_merge(parent::getReplacements(), [
             'namespace'            => $this->pathToNamespace('eloquent.ginterface'),
         ]);
+
         return $this->replacements;
     }
 }

@@ -6,7 +6,6 @@ use Eilander\Builder\Makes\Repository\RepositoryBase;
 
 class MakeEntity extends RepositoryBase
 {
-
     public function render()
     {
         $this->name = $this->nameParser->getNames('Name');
@@ -16,17 +15,18 @@ class MakeEntity extends RepositoryBase
 
         // Bestaat het bestand al?
         if ($this->exists()) {
-          return 'Model '.$this->name.' already exists!';
+            return 'Model '.$this->name.' already exists!';
         }
         // Maak replacements
         $this->getReplacements();
         // Genereer bestand
         $this->run();
+
         return 'Model created successfully';
     }
 
     /**
-     * Set replacements
+     * Set replacements.
      *
      * @return string
      */
@@ -38,6 +38,7 @@ class MakeEntity extends RepositoryBase
             'namespace' => $this->pathToNamespace('eloquent.entity'),
             'fillables' => $schema,
         ]);
+
         return $this->replacements;
     }
 }

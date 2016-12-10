@@ -6,7 +6,6 @@ use Eilander\Builder\Makes\Repository\RepositoryBase;
 
 class MakeRepositoryInterface extends RepositoryBase
 {
-
     public function render()
     {
         $this->name = $this->nameParser->getNames('Name').'Repository';
@@ -21,11 +20,12 @@ class MakeRepositoryInterface extends RepositoryBase
         $this->getReplacements();
         // Genereer bestand
         $this->run();
+
         return 'Contract created successfully.';
     }
 
     /**
-     * Set replacements
+     * Set replacements.
      *
      * @return string
      */
@@ -36,6 +36,7 @@ class MakeRepositoryInterface extends RepositoryBase
         $this->replacements = array_merge(parent::getReplacements(), [
             'namespace' => $this->pathToNamespace('eloquent.interface'),
         ]);
+
         return $this->replacements;
     }
 }

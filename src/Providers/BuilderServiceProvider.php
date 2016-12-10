@@ -5,8 +5,7 @@ namespace Eilander\Builder\Providers;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class BuilderServiceProvider
- * @package Eilander\Builder\Providers
+ * Class BuilderServiceProvider.
  */
 class BuilderServiceProvider extends ServiceProvider
 {
@@ -18,16 +17,15 @@ class BuilderServiceProvider extends ServiceProvider
     protected $defer = false;
 
     /**
-     *
      * @return void
      */
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../Config/Builder.php' => config_path('builder.php')
+            __DIR__.'/../Config/Builder.php' => config_path('builder.php'),
         ]);
         $this->mergeConfigFrom(
-            __DIR__ . '/../Config/Builder.php', 'builder'
+            __DIR__.'/../Config/Builder.php', 'builder'
         );
     }
 

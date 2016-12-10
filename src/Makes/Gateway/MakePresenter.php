@@ -20,11 +20,12 @@ class MakePresenter extends RepositoryBase
         $this->getReplacements();
         // Genereer bestand
         $this->run();
+
         return 'Presenter created successfully.';
     }
 
     /**
-     * Set replacements
+     * Set replacements.
      *
      * @return string
      */
@@ -35,6 +36,7 @@ class MakePresenter extends RepositoryBase
             'namespace'             => $this->pathToNamespace('eloquent.presenter'),
             'transformer_namespace' => $this->pathToNamespace('eloquent.transformer'),
         ]);
+
         return $this->replacements;
     }
 }

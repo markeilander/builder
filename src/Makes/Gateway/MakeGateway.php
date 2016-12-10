@@ -21,11 +21,12 @@ class MakeGateway extends RepositoryBase
         $this->getReplacements();
         // Genereer bestand
         $this->run();
+
         return 'Gateway created successfully.';
     }
 
     /**
-     * Set replacements
+     * Set replacements.
      *
      * @return string
      */
@@ -39,6 +40,7 @@ class MakeGateway extends RepositoryBase
             'validation_namespace' => $this->pathToNamespace('eloquent.validation'),
             'presenter_namespace'  => $this->pathToNamespace('eloquent.presenter'),
         ]);
+
         return $this->replacements;
     }
 }

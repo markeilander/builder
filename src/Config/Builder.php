@@ -15,12 +15,12 @@ return [
     | Here you can define the paths for generated code.
     |
     */
-    'generator'=>[
+    'generator'=> [
         'rootNamespace'  => 'Modules/[module]',
         'rootPath'       => 'modules/[module]',
         'controller'     => [
           'api'          => 'Http/Controllers/Api/V1/',
-          'base'         => 'Http/Controllers/'
+          'base'         => 'Http/Controllers/',
         ],
         'route'          => app_path().'/Modules/[module]/Http/routes.php',
         'binding'        => [

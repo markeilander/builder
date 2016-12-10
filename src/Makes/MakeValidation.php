@@ -14,17 +14,18 @@ class MakeValidation extends RepositoryBase
 
         // Bestaat het bestand al?
         if ($this->exists()) {
-          return 'Validator '.$this->name.' already exists!';
+            return 'Validator '.$this->name.' already exists!';
         }
         // Maak replacements
         $this->getReplacements();
         // Genereer bestand
         $this->run();
+
         return 'Validator created successfully';
     }
 
     /**
-     * Set replacements
+     * Set replacements.
      *
      * @return string
      */
@@ -34,6 +35,7 @@ class MakeValidation extends RepositoryBase
             'model'             => $this->nameParser->getNames('Name'),
             'namespace'         => $this->pathToNamespace('eloquent.validation'),
         ]);
+
         return $this->replacements;
     }
 }

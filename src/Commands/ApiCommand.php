@@ -2,22 +2,22 @@
 
 namespace Eilander\Builder\Commands;
 
-use Illuminate\Support\Collection;
-use Eilander\Generators\Commands\BaseCommand;
 use Eilander\Builder\Makes\Gateway\MakeGateway;
 use Eilander\Builder\Makes\Gateway\MakeGatewayInterface;
 use Eilander\Builder\Makes\Gateway\MakePresenter;
 use Eilander\Builder\Makes\Gateway\MakeTransformer;
-use Eilander\Builder\Makes\Repository\Eloquent\MakeRepositoryInterface;
-use Eilander\Builder\Makes\Repository\Eloquent\MakeRepository;
-use Eilander\Builder\Makes\Repository\Eloquent\MakeEntity;
 use Eilander\Builder\Makes\MakeController;
-use Eilander\Builder\Makes\MakeRoute;
-use Eilander\Builder\Makes\Providers\MakeRepository as RepositoryProvider;
-use Eilander\Builder\Makes\Providers\MakeGateway as GatewayProvider;
-use Eilander\Builder\Makes\MakeRepositoryBinding;
 use Eilander\Builder\Makes\MakeGatewayBinding;
+use Eilander\Builder\Makes\MakeRepositoryBinding;
+use Eilander\Builder\Makes\MakeRoute;
 use Eilander\Builder\Makes\MakeValidation;
+use Eilander\Builder\Makes\Providers\MakeGateway as GatewayProvider;
+use Eilander\Builder\Makes\Providers\MakeRepository as RepositoryProvider;
+use Eilander\Builder\Makes\Repository\Eloquent\MakeEntity;
+use Eilander\Builder\Makes\Repository\Eloquent\MakeRepository;
+use Eilander\Builder\Makes\Repository\Eloquent\MakeRepositoryInterface;
+use Eilander\Generators\Commands\BaseCommand;
+use Illuminate\Support\Collection;
 
 class ApiCommand extends BaseCommand
 {
@@ -40,7 +40,7 @@ class ApiCommand extends BaseCommand
     /**
      * @var Collection
      */
-    protected $generators  = null;
+    protected $generators = null;
 
     /**
      * Execute the console command.
@@ -83,7 +83,7 @@ class ApiCommand extends BaseCommand
         ]));
         $this->generators->push(new MakeGatewayInterface([
             'name'         => $this->argument('name'),
-            'module'  => $this->option('module'),
+            'module'       => $this->option('module'),
         ]));
         $this->generators->push(new MakePresenter([
             'name'    => $this->argument('name'),
@@ -119,13 +119,11 @@ class ApiCommand extends BaseCommand
             'module'  => $this->option('module'),
         ]));
         // Run commands
-        foreach( $this->generators as $generator)
-        {
+        foreach ($this->generators as $generator) {
             $this->info($generator->render());
         }
         // Round up
         $this->info('Dump-autoload...');
         $this->composer->dumpAutoloads();
-
     }
 }

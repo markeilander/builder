@@ -21,11 +21,12 @@ class MakeGateway extends RepositoryBase
         $this->getReplacements();
         // Genereer bestand
         $this->run();
+
         return 'GatewayServiceProvider created successfully.';
     }
 
     /**
-     * Set replacements
+     * Set replacements.
      *
      * @return string
      */
@@ -34,6 +35,7 @@ class MakeGateway extends RepositoryBase
         $this->replacements = array_merge(parent::getReplacements(), [
             'namespace'            => $this->pathToNamespace('eloquent.providers'),
         ]);
+
         return $this->replacements;
     }
 }
